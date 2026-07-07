@@ -1,0 +1,223 @@
+@import 'tailwindcss';
+
+/*
+  PROJECT: RITUAL — global system.
+  The grade is the Dawn Engine's: --d-* variables are written per frame on
+  <html> (rgb triplets). Defaults below are 4:12 — the film opens in the dark,
+  and the opening text is the LCP.
+  Static tokens are the approved time-of-day palette (Visual Direction §3).
+*/
+
+:root {
+  /* Dawn Engine live grade — defaults: 4:12, char + bluehour */
+  --d-ground: 19 16 9;
+  --d-air: 30 42 46;
+  --d-ink: 236 227 208;
+  --d-inst: 243 199 119;
+  --d-beam: 0.1;
+  --d-progress: 0;
+
+  /* Approved static tokens (marks + fixed surfaces only) */
+  --cream: #dfd2b6;
+  --honey: #c6892f;
+  --honey-deep: #9c6a21;
+  --butter: #f3c777;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scrollbar-width: none;
+}
+
+body {
+  font-family: var(--font-record), 'Helvetica Neue', Arial, sans-serif;
+  background: rgb(var(--d-ground));
+  color: rgb(var(--d-ink));
+}
+
+/* ————— One light, with a temperature ————— */
+
+.light {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(112deg, transparent 38%, rgb(var(--d-air) / var(--d-beam)) 50%, transparent 63%),
+    radial-gradient(120% 90% at 70% 0%, rgb(var(--d-air) / calc(var(--d-beam) * 0.75)), transparent 55%);
+}
+
+/* ————— The film stock ————— */
+
+.grain {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.05;
+  mix-blend-mode: overlay;
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="240" height="240"><filter id="g"><feTurbulence type="fractalNoise" baseFrequency="0.82" numOctaves="2" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/></filter><rect width="100%25" height="100%25" filter="url(%23g)"/></svg>');
+}
+
+/* ————— The Instrument chrome ————— */
+
+.chrome {
+  position: fixed;
+  z-index: 10;
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  font-weight: 500;
+  white-space: nowrap;
+  color: rgb(var(--d-ink));
+}
+.chrome--menu {
+  top: 34px;
+  left: 38px;
+}
+.chrome--arc {
+  top: 28px;
+  right: 38px;
+}
+.chrome--clock {
+  bottom: 32px;
+  left: 38px;
+  font-family: var(--font-instrument), ui-monospace, monospace;
+  font-size: 15px;
+  letter-spacing: 0.08em;
+  color: rgb(var(--d-inst));
+}
+.chrome--clock small {
+  display: block;
+  font-family: var(--font-record), sans-serif;
+  font-size: 9px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: rgb(var(--d-ink) / 0.6);
+  margin-bottom: 5px;
+}
+.chrome--bake {
+  bottom: 32px;
+  right: 38px;
+  font-family: var(--font-instrument), ui-monospace, monospace;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  color: rgb(var(--d-inst) / 0.85);
+}
+
+/* ————— The film reel ————— */
+
+.reel {
+  position: relative;
+  height: 800vh;
+}
+
+.beat {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: min(84vw, 60rem);
+  text-align: center;
+}
+.beat__voice {
+  font-family: var(--font-voice), Georgia, serif;
+  font-weight: 360;
+  font-size: clamp(30px, 4.6vw, 64px);
+  line-height: 1.14;
+  color: rgb(var(--d-ink));
+  font-feature-settings: 'liga' 1, 'onum' 1;
+}
+.beat__record {
+  font-size: 10.5px;
+  font-weight: 500;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: rgb(var(--d-ink) / 0.62);
+}
+.beat__voice + .beat__record {
+  margin-top: 3.2vh;
+}
+
+/* ————— 8:04 — the film's final state (approved Frame 12) ————— */
+
+.handover {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.wordmark {
+  position: relative;
+  font-family: var(--font-voice), Georgia, serif;
+  font-weight: 480;
+  font-size: 19px;
+  letter-spacing: 0.14em;
+  color: rgb(var(--d-ink));
+  margin-bottom: 7vh;
+}
+.wordmark svg {
+  position: absolute;
+  left: -14%;
+  top: 6%;
+  width: 130%;
+  height: 128%;
+  overflow: visible;
+}
+.promise {
+  font-family: var(--font-voice), Georgia, serif;
+  font-weight: 355;
+  font-size: clamp(42px, 7.2vw, 102px);
+  line-height: 1.06;
+  color: rgb(var(--d-ink));
+  text-align: center;
+  max-width: 14em;
+  font-feature-settings: 'liga' 1, 'onum' 1;
+}
+.reserve {
+  margin-top: 8.5vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.reserve__emblem {
+  position: relative;
+  margin-bottom: 3.2vh;
+}
+.reserve__emblem::before {
+  /* the one gleam the accent is rationed for — warm brass, not a screen */
+  content: '';
+  position: absolute;
+  inset: -26px;
+  background: radial-gradient(circle, rgb(224 166 92 / 0.24), transparent 62%);
+}
+.reserve__label {
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: rgb(var(--d-ink));
+}
+.reserve__count {
+  font-family: var(--font-instrument), ui-monospace, monospace;
+  font-size: 30px;
+  letter-spacing: 0.06em;
+  color: rgb(var(--d-inst));
+  margin-top: 2.2vh;
+}
+.reserve__caption {
+  font-size: 9.5px;
+  font-weight: 500;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: rgb(var(--d-ink) / 0.55);
+  margin-top: 10px;
+}
+
+@media (max-width: 720px) {
+  .chrome--menu { top: 26px; left: 24px; }
+  .chrome--arc { top: 20px; right: 24px; }
+  .chrome--clock { bottom: 24px; left: 24px; }
+  .chrome--bake { bottom: 24px; right: 24px; }
+}
