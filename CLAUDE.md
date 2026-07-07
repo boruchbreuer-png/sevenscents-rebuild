@@ -32,10 +32,13 @@ Each stage produces a document or deliverable committed only after approval:
 | Stage | Deliverable | Location |
 |-------|------------|----------|
 | 1. Think | Creative Strategy | `docs/01-creative-strategy.md` |
-| 2. Design | Visual Direction | `docs/02-visual-direction.md` |
+| 1.5 Architecture | Experience Architecture (moment → implementation method map) | `docs/02-experience-architecture.md` |
+| 2. Design | Visual Direction | `docs/03-visual-direction.md` |
 | 3. Mockup | One static HTML page | `mockup/` |
 | 4. Build | The real site | `/` (app) |
-| 5. Polish | Director's Cut critique + fixes | `docs/03-directors-cut.md` |
+| 5. Polish | Director's Cut critique + fixes | `docs/04-directors-cut.md` |
+
+The Experience Architecture must exist and be approved before any moodboards or mockups begin: every major moment maps to its implementation method (real-time 3D, video, shader, GSAP, or CSS) so the creative vision stays deliverable.
 
 ## Asset Rules (apply only in Stage 4+)
 
