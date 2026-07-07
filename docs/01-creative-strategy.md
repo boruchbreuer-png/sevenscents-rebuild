@@ -1,5 +1,5 @@
 # PROJECT: RITUAL — Creative Strategy (v2)
-**Stage 1 of 5: THINK** · Status: awaiting approval · No code, images, or HTML exist yet.
+**Stage 1 of 5: THINK** · Status: **APPROVED 2026-07-07** (v2, with Stage 1.5 amendments)
 **v2 changes:** belief-system reframe ("protecting mornings"), the Proofing invention, fifth-visit design, world history, the impossible transition, participation rebalance, permanent visual language.
 
 ---

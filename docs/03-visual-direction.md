@@ -1,5 +1,5 @@
 # PROJECT: RITUAL — Visual Direction
-**Stage 2 of 5: DESIGN** · Status: awaiting approval · No code, no generated assets. Renders the Constitution (`00-brand-dna.md`); does not revise it.
+**Stage 2 of 5: DESIGN** · Status: **APPROVED 2026-07-07**, with one mandated amendment: the Constitution appendix below. Renders the Constitution (`00-brand-dna.md`); does not revise it.
 
 **The standard this document is built to meet:**
 > *Every frame must be identifiable as RITUAL even if the loaf were removed.*
@@ -224,4 +224,40 @@ One static HTML frame — **Frame 12 (8:04, the promise/reservation)** — becau
 
 ---
 
-**STOP.** Stage 2 ends here. No mockup, no HTML, no assets until explicit approval. On approval I commit this as the Stage 2 checkpoint and build the single static mockup of Frame 12.
+**Stage 2 approved.** Stage 3 authorization: exactly one static HTML mockup of Frame 12 — no interactions, animations, or functionality — pending its own approval.
+
+---
+
+## Appendix — The Constitution of RITUAL
+
+*One page. Immutable. Technologies expire; frameworks die; screens change shape and will someday stop being screens. If this experience is rebuilt in 2036 — on whatever medium exists then — it obeys this page. Everything else, in every other document, is implementation. This is law.*
+
+**Article I — The purpose.** RITUAL protects mornings. It has never sold bread. Any decision that steals from the hour — that makes a person faster, busier, or more anxious — is unconstitutional, whatever it earns.
+
+**Article II — The Creed.** Six tenets, immutable: the day is decided in its first hour; that hour belongs to no one but you; slowness is the presence of attention; what cannot be rushed is what is worth waking for; a morning without ritual is just an alarm; bread is how we practice.
+
+**Article III — Time is the only luxury ingredient.** Thirty-six hours is non-negotiable. Nothing in the brand may communicate haste: no urgency, no countdown pressure, no "hurry."
+
+**Article IV — The count never resets.** Bake №, the tally, the mornings kept, your mornings here — every number only climbs. The brand is allowed to age. It is never allowed to start over.
+
+**Article V — Honest scarcity.** Forty loaves; then the oven rests. Scarcity is a fact of the oven, never a tactic of the marketing.
+
+**Article VI — History is history.** 1931. 1952. 1974. 1998. The Mother is *she*; she eats before we do. The hour is 4:12–8:04; the bake begins at 4:30. Canon may deepen. It may never be edited.
+
+**Article VII — One light, with a temperature.** Darkness is the default; light is the event. Every frame has a single source, and its warmth tells the time.
+
+**Article VIII — Circle, arc, beam.** No other geometry is ever the subject.
+
+**Article IX — The mark must remain bakeable.** The Score is the master mark, and whatever form it takes, it must always be something a lame can cut into a loaf. A logo that cannot be baked is not our logo.
+
+**Article X — Warm dark, linen light.** Pure black and pure white never appear. The grade is one film stock, forever.
+
+**Article XI — Facts, not adjectives.** Numbers with reverence. Never "premium," "luxury," "artisanal." Never an exclamation mark.
+
+**Article XII — Stillness is rewarded.** Attention is honored above engagement, on every medium, forever. Nothing gates what could invite; the whole experience must work with hands still.
+
+**Article XIII — The bite is never shown.** The payoff stays one step ahead. Craving is the engine; resolution belongs to the customer's table, not the screen.
+
+**The 2036 Test.** Before any rebuild ships: remove the loaf from every frame, and remove the medium from every plan. What remains must still, unmistakably, be RITUAL. If it isn't, it does not ship.
+
+**Amendment.** This page changes only by explicit, dated amendment — and never to make the brand faster, louder, or easier to copy.
