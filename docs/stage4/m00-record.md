@@ -1,5 +1,13 @@
 # M-00 — Generation Record
-**Status: HOLDING at the M-00 approval gate after Round 2.** The two-round allowance is now fully spent. Pixels were not inspectable in-session in either round (CDN egress 403 by org policy; the Higgsfield MCP server does not support resource reads) — no scorecard was fabricated in either round. Visual review is the owner's, externally via the Higgsfield widget.
+**Status: ✅ CANONIZED 2026-07-07.**
+
+> **THE CANON MASTER — M-00 = Candidate D**
+> **Job ID `3cff50ce-c8cb-43f3-8452-7681ea49f028` · seed `511285`** · seedream_v4_5 · high · 16:9 · 5120×2880 · Prompt v2 · reference: Candidate B.
+> Owner's verdict: strongest single-source light; best sense the room existed before the brand; most usable continuity geometry for relighting; most integrated 1931 lintel; strongest RITUAL read even before the loaf.
+> **Every downstream asset references this job ID.** Do not reopen M-00 unless explicitly directed.
+> **Candidate C** (`e7f4c2e0-1bb0-4642-b98a-b3793d6b2ab8`, seed `30100`) is preserved as the **rejected-but-strong alternate**; not canon, never referenced by downstream assets.
+
+Historical record below. Pixels were not inspectable in-session in either round (CDN egress 403 by org policy; the Higgsfield MCP server does not support resource reads) — no scorecard was fabricated in either round. Visual review was the owner's, externally via the Higgsfield widget.
 
 ## Round 1 verdict (owner, external review)
 - **Candidate B wins** — stronger single-source light, room geometry, 1931 presence, calmer composition, better negative space, no visible person.
