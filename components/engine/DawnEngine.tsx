@@ -5,6 +5,7 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Lenis from 'lenis';
 import { dawnAt } from '@/lib/dawn';
+import { gradeAt, gradeVars } from '@/lib/grade';
 
 /**
  * The Dawn Engine transport. One ScrollTrigger spans the film; its progress
@@ -45,6 +46,9 @@ export default function DawnEngine() {
       root.style.setProperty('--d-inst', d.instrument.join(' '));
       root.style.setProperty('--d-beam', String(d.beam));
       root.style.setProperty('--d-progress', String(self.progress));
+      // the welding grade for plate scenes rides the same clock
+      const gv = gradeVars(gradeAt(d.minutes));
+      for (const k in gv) root.style.setProperty(k, gv[k]);
       if (clockEl) clockEl.textContent = d.clock;
       if (actEl) actEl.textContent = d.act;
     };

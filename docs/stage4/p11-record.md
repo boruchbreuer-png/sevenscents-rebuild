@@ -1,5 +1,16 @@
-# P-11 — Generation Record (Round 1)
-**Status: HOLDING at the P-11 review gate.** Two candidates generated, both anchored to canon M-00, delivered to the owner's Higgsfield widget. Same review protocol as M-00: pixels are not inspectable in-session (CDN egress 403 by org policy; MCP resource reads unsupported), so no in-session scorecard — visual review is the owner's, externally. One further round of ≤2 candidates remains available under the two-round convention unless the owner directs otherwise.
+# P-11 — Generation Record
+**Status: ✅ CANONIZED 2026-07-07.**
+
+> **THE MACRO PRODUCT CANON — P-11 = P11-B**
+> **Job ID `b464f504-4f3c-47bb-8912-be0734b49b07` · seed `823581`** · seedream_v4_5 · high · 16:9 · 5120×2880 · reference: canon M-00 (`3cff50ce-c8cb-43f3-8452-7681ea49f028`).
+> Owner's verdict: strongest continuity with M-00, strongest tactile authority, cleanest macro product definition, best matte/mineral crust, strong opened Score, least commercial interference. Fit to serve as the texture / material reference for downstream First Cut / 3D derivation.
+> **P11-A** (`cd52ec5f-4fc6-4b85-b26a-e9e36ded77f5`, seed `747970`) is preserved as **rejected alternate** — broke the brief with butter, knife, wheat stalks, scattered grains, styled prop composition (food-magazine read). Not canon, never referenced downstream.
+
+## The canon chain (all downstream work references these two, and only these)
+- **M-00** = Candidate D · `3cff50ce-c8cb-43f3-8452-7681ea49f028` — room / continuity master.
+- **P-11** = P11-B · `b464f504-4f3c-47bb-8912-be0734b49b07` — macro product / material master.
+
+Second round was **not** spent (owner directive). Historical record below.
 
 ## Purpose (per owner's P-11 guidance)
 Macro **product definition**, not room definition: tactile authority of the loaf — crust, score, flour, structure — carrying the approved RITUAL language to macro scale. Same morning, same production, same lens logic, same film stock as M-00. Explicitly excluded: new creative direction, aesthetic reset, generic bakery beauty shot, cheerful commercial food styling, rustic cliché.

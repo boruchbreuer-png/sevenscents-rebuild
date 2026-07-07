@@ -62,6 +62,47 @@ body {
   background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="240" height="240"><filter id="g"><feTurbulence type="fractalNoise" baseFrequency="0.82" numOctaves="2" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/></filter><rect width="100%25" height="100%25" filter="url(%23g)"/></svg>');
 }
 
+/* ————— The welding pass: a plate graded to the clock ————— */
+
+.plate-grade {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+.plate-grade__media {
+  position: absolute;
+  inset: 0;
+  /* base film stock pushed toward the hour (Balanced/Reduced grade) */
+  filter: brightness(var(--g-b, 1)) contrast(var(--g-c, 1)) saturate(var(--g-s, 1))
+    sepia(var(--g-sep, 0));
+}
+.plate-grade__media > img,
+.plate-grade__media > svg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.plate-grade__tint {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: rgb(var(--g-tint, 30 42 46));
+  opacity: var(--g-tinta, 0);
+  mix-blend-mode: soft-light;
+}
+.plate-grade__vignette {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  /* one light: brightest at the upper-left window, falling to the ground color */
+  background: radial-gradient(
+    135% 120% at 30% 14%,
+    transparent 18%,
+    rgb(var(--d-ground, 19 16 9) / var(--g-vig, 0.5)) 100%
+  );
+}
+
 /* ————— The Instrument chrome ————— */
 
 .chrome {

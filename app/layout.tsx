@@ -1,7 +1,6 @@
 import type { Metadata } from 'next';
 import localFont from 'next/font/local';
-import Chrome from '@/components/chrome/Chrome';
-import DawnEngine from '@/components/engine/DawnEngine';
+import FilmShell from '@/components/engine/FilmShell';
 import './globals.css';
 
 const voice = localFont({
@@ -33,11 +32,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className={`${voice.variable} ${record.variable} ${instrument.variable}`}>
       <body>
-        {/* the single light source and the film stock — every frame wears both */}
-        <div className="light" aria-hidden="true" />
-        <div className="grain" aria-hidden="true" />
-        <DawnEngine />
-        <Chrome />
+        {/* the single light, the film stock, the Dawn Engine, the chrome —
+            present on the film, absent on lab spikes */}
+        <FilmShell />
         {children}
       </body>
     </html>
