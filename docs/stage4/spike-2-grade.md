@@ -17,12 +17,19 @@
 - **Balanced / Reduced:** this CSS-composited grade **is** the shipping path for those tiers — and it is what verifies deterministically now.
 - **Full:** the identical transform as a single fragment-shader LUT over the plate texture, keyed to the same clock. Not built yet; it needs the real plate pixels to tune against and is the first task once assets land. Raw WebGL, not three.js — three enters only at the First Cut / transition.
 
-## The blocker (the real gate)
-The canon plates (M-00, P-11) live on the Higgsfield CDN, which this session's egress policy blocks (403 — report, don't route around; MCP resource reads are also unsupported). **They cannot be pulled into the build from here.** To wire real plates:
-1. Owner downloads canon jobs `3cff50ce-…` (M-00) and `b464f504-…` (P-11) from the widget and commits them to `public/assets/plates/m-00.png` and `p-11.png` (paths already registered in `lib/plates.ts`), **or** the CDN host is allowlisted for this session.
-2. Then: swap the stand-in for `<img>` plates, tune the grade keyframes against real pixels, and build the Full-tier LUT.
+## The blocker (the real gate) — still unresolved, two working fixes
+Canon pixels still cannot reach the build from this session. Two delivery routes were attempted and both fail:
+- **Higgsfield CDN** (`d8j0ntlcm91z4.cloudfront.net`): still **403** by egress policy (report, don't route around; MCP resource reads unsupported).
+- **Chat-pasted PNGs**: images attached in chat reach the model as *vision*, not as files — they are **not written to the container filesystem**, so no tool can read their bytes into `public/`. (Confirmed: filesystem scan found no delivered image.)
 
-Until then the stand-in proves the pipeline and the film runs on the DOM grade — the build is green either way.
+**Pipeline is armed and one command from proof.** `lib/plates.ts` registers the paths, and `/lab/grade?plate=m00|p11` renders the real file the moment it exists (server-side `existsSync` check), falling back to the stand-in with an explicit "NOT DELIVERED" banner until then. Verification harness: `scratch/verify-plates.js`.
+
+**To land the bytes, one of:**
+1. **Allowlist `d8j0ntlcm91z4.cloudfront.net`** for this session's egress → I fetch both by their recorded raw URLs in one command and verify immediately. *(Fastest; admin action.)*
+2. **Commit the two PNGs to the branch** at `public/assets/plates/m00-canon.png` and `p11-canon.png` (GitHub web upload works), then tell me to pull → I verify. *(No admin needed.)*
+3. Host them on an already-allowlisted origin and give me the URLs.
+
+Then, unchanged: `?plate=` renders the real `<img>`, I shoot M-00 at 4:12/5:40/7:42/8:04 + P-11 at 7:42, tune the grade minimally against real pixels (approved palette only), and build the Full-tier LUT. Until then the stand-in proves the pipeline and the film runs on the DOM grade — the build stays green.
 
 ## Not canon, not shipped
 `components/lab/StandInPlate.tsx` and `app/lab/grade/` are non-production: noindex, unlinked, removed before launch. The stand-in exists only to exercise the grade while canon pixels are unreachable. Final grade values will be tuned on the real plates, not the stand-in.

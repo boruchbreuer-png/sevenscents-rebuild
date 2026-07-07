@@ -24,14 +24,14 @@ export const PLATES: Record<string, Plate> = {
     id: 'M-00',
     beat: 'master / room continuity',
     canonJob: '3cff50ce-c8cb-43f3-8452-7681ea49f028',
-    file: '/assets/plates/m-00.png',
+    file: '/assets/plates/m00-canon.png',
     note: 'Canon master. Base film stock; every plate is graded to match this.',
   },
   'P-11': {
     id: 'P-11',
     beat: '7:42 macro product',
     canonJob: 'b464f504-4f3c-47bb-8912-be0734b49b07',
-    file: '/assets/plates/p-11.png',
+    file: '/assets/plates/p11-canon.png',
     note: 'Canon macro. Texture / material source for the First Cut 3D derivation.',
   },
 };
