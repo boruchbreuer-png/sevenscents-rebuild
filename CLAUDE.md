@@ -31,8 +31,10 @@ Each stage produces a document or deliverable committed only after approval:
 
 | Stage | Deliverable | Location |
 |-------|------------|----------|
+| 0. Constitution | **Brand DNA — permanent canon; overrides conflicting later work** | `docs/00-brand-dna.md` |
 | 1. Think | Creative Strategy | `docs/01-creative-strategy.md` |
 | 1.5 Architecture | Experience Architecture (moment → implementation method map) | `docs/02-experience-architecture.md` |
+| 1.5 Transition | Impossible-transition interrogation & verdict | `docs/01a-transition-review.md` |
 | 2. Design | Visual Direction | `docs/03-visual-direction.md` |
 | 3. Mockup | One static HTML page | `mockup/` |
 | 4. Build | The real site | `/` (app) |
