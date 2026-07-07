@@ -121,14 +121,36 @@
 
   /* ————— The tally wall, glimpsed in daylight (Frame 12 spec) ————— */
 
+  /* The tally wall: mornings kept. The count recedes upward into 1998;
+     today's mark is fresh graphite. Accumulated history, not texture. */
   .tally {
     position: fixed;
-    right: 44px;
+    right: 46px;
     top: 50%;
-    transform: translateY(-58%) rotate(0.6deg);
+    transform: translateY(-50%) rotate(0.5deg);
     display: flex;
     flex-direction: column;
-    gap: 18px;
+    align-items: flex-end;
+    gap: 9px;
+  }
+  .tally__group { display: block; }
+  .tally__today { display: block; margin-top: 15px; }
+  .tally__rule {
+    width: 40px;
+    height: 1px;
+    background: var(--bistre);
+    opacity: 0.28;
+    margin-top: 14px;
+  }
+  .tally__label {
+    margin-top: 9px;
+    font-size: 8px;
+    line-height: 1.75;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    text-align: right;
+    color: var(--bistre);
+    opacity: 0.5;
   }
 
   /* ————— The center: the promise and the reservation ————— */
@@ -142,12 +164,14 @@
     color: var(--cocoa);
     margin-bottom: 8.5vh;
   }
+  /* The Score sits BELOW the word and lifts off past the last letter —
+     a lame's cut cradling the loaf, never a line through it. */
   .wordmark svg {
     position: absolute;
-    left: -16%;
-    top: -8%;
-    width: 132%;
-    height: 132%;
+    left: -14%;
+    top: 6%;
+    width: 130%;
+    height: 128%;
     overflow: visible;
   }
 
@@ -175,11 +199,11 @@
     margin-bottom: 3.6vh;
   }
   .reserve__emblem::before {
-    /* the one glow the accent is rationed for */
+    /* the one gleam the accent is rationed for — warm brass, not a screen */
     content: '';
     position: absolute;
-    inset: -34px;
-    background: radial-gradient(circle, rgba(243,199,119,0.32), rgba(243,199,119,0) 65%);
+    inset: -26px;
+    background: radial-gradient(circle, rgba(224,166,92,0.24), rgba(224,166,92,0) 62%);
   }
   .reserve__label {
     font-size: 12px;
@@ -225,11 +249,15 @@
   <!-- chrome -->
   <nav class="chrome chrome--menu">Menu</nav>
 
-  <div class="chrome chrome--arc" aria-label="The Arc of Hours, complete">
+  <div class="chrome chrome--arc" aria-label="The Arc of Hours — the morning from 4:12 to 8:04, complete">
     <svg width="52" height="52" viewBox="0 0 96 96" role="img">
-      <circle cx="48" cy="48" r="36" fill="none" stroke="#DFD2B6" stroke-width="2.5"/>
-      <path d="M13.2 38.7 A36 36 0 0 1 82.8 38.7" fill="none" stroke="#C6892F" stroke-width="4" stroke-linecap="round"/>
-      <circle cx="82.8" cy="38.7" r="3.2" fill="#C6892F"/>
+      <circle cx="48" cy="48" r="36" fill="none" stroke="#DFD2B6" stroke-width="2.4"/>
+      <!-- the protected morning, 4:12 → 8:04, rising -->
+      <path d="M13.22 38.68 A36 36 0 0 1 80.63 32.78" fill="none" stroke="#C6892F" stroke-width="3.8" stroke-linecap="round"/>
+      <!-- the baker's hour, 4:30 -->
+      <line x1="15.65" y1="32.22" x2="22.83" y2="35.72" stroke="#9C6A21" stroke-width="2.6" stroke-linecap="round"/>
+      <!-- 8:04, now -->
+      <circle cx="80.63" cy="32.78" r="3.3" fill="#C6892F"/>
     </svg>
   </div>
 
@@ -240,35 +268,50 @@
 
   <div class="chrome chrome--bake">Bake &#8470;&nbsp;9,741</div>
 
-  <!-- the tally wall, glimpsed: three faded groups of five, and today's fresh mark -->
-  <div class="tally" aria-hidden="true">
-    <svg width="44" height="30" viewBox="0 0 44 30" opacity="0.13">
-      <g stroke="#3A2E22" stroke-width="2" stroke-linecap="round">
-        <line x1="5"  y1="3" x2="4"  y2="27"/><line x1="14" y1="2" x2="13" y2="26"/>
-        <line x1="23" y1="3" x2="22" y2="27"/><line x1="32" y1="2" x2="31" y2="26"/>
-        <line x1="1"  y1="22" x2="38" y2="7"/>
+  <!-- the tally wall: mornings kept, receding into 1998; today's fresh mark apart -->
+  <div class="tally" aria-label="Mornings kept, since 1998. Today's mark is fresh.">
+    <!-- oldest, dissolving into history -->
+    <svg class="tally__group" width="40" height="26" viewBox="0 0 40 26" style="opacity:0.05" aria-hidden="true">
+      <g stroke="#3A2E22" stroke-width="1.9" stroke-linecap="round">
+        <line x1="4" y1="3" x2="5" y2="23"/><line x1="12" y1="2" x2="11" y2="22"/>
+        <line x1="20" y1="3" x2="21" y2="23"/><line x1="28" y1="2" x2="27" y2="22"/>
+        <line x1="1" y1="20" x2="34" y2="6"/>
       </g>
     </svg>
-    <svg width="44" height="30" viewBox="0 0 44 30" opacity="0.19">
-      <g stroke="#3A2E22" stroke-width="2" stroke-linecap="round">
-        <line x1="5"  y1="2" x2="6"  y2="26"/><line x1="14" y1="3" x2="13" y2="27"/>
-        <line x1="23" y1="2" x2="24" y2="26"/><line x1="32" y1="3" x2="31" y2="27"/>
-        <line x1="2"  y1="23" x2="39" y2="6"/>
+    <svg class="tally__group" width="40" height="26" viewBox="0 0 40 26" style="opacity:0.09" aria-hidden="true">
+      <g stroke="#3A2E22" stroke-width="1.9" stroke-linecap="round">
+        <line x1="5" y1="2" x2="4" y2="22"/><line x1="12" y1="3" x2="13" y2="23"/>
+        <line x1="20" y1="2" x2="20" y2="22"/><line x1="28" y1="3" x2="27" y2="23"/>
+        <line x1="1" y1="19" x2="34" y2="7"/>
       </g>
     </svg>
-    <svg width="44" height="30" viewBox="0 0 44 30" opacity="0.27">
-      <g stroke="#3A2E22" stroke-width="2" stroke-linecap="round">
-        <line x1="5"  y1="3" x2="5"  y2="27"/><line x1="14" y1="2" x2="15" y2="26"/>
-        <line x1="23" y1="3" x2="22" y2="27"/><line x1="32" y1="2" x2="32" y2="26"/>
-        <line x1="1"  y1="21" x2="38" y2="8"/>
+    <svg class="tally__group" width="40" height="26" viewBox="0 0 40 26" style="opacity:0.14" aria-hidden="true">
+      <g stroke="#3A2E22" stroke-width="1.9" stroke-linecap="round">
+        <line x1="4" y1="3" x2="5" y2="23"/><line x1="13" y1="2" x2="12" y2="22"/>
+        <line x1="20" y1="3" x2="21" y2="23"/><line x1="28" y1="2" x2="28" y2="22"/>
+        <line x1="1" y1="20" x2="34" y2="6"/>
       </g>
     </svg>
-    <!-- today's mark: fresh graphite -->
-    <svg width="44" height="30" viewBox="0 0 44 30" opacity="0.6">
-      <g stroke="#241B12" stroke-width="2.2" stroke-linecap="round">
-        <line x1="5" y1="3" x2="4" y2="27"/>
+    <svg class="tally__group" width="40" height="26" viewBox="0 0 40 26" style="opacity:0.20" aria-hidden="true">
+      <g stroke="#3A2E22" stroke-width="1.9" stroke-linecap="round">
+        <line x1="5" y1="2" x2="4" y2="22"/><line x1="12" y1="3" x2="13" y2="23"/>
+        <line x1="20" y1="2" x2="20" y2="22"/><line x1="28" y1="3" x2="27" y2="23"/>
+        <line x1="1" y1="19" x2="34" y2="7"/>
       </g>
     </svg>
+    <svg class="tally__group" width="40" height="26" viewBox="0 0 40 26" style="opacity:0.28" aria-hidden="true">
+      <g stroke="#3A2E22" stroke-width="1.9" stroke-linecap="round">
+        <line x1="4" y1="3" x2="5" y2="23"/><line x1="13" y1="2" x2="12" y2="22"/>
+        <line x1="20" y1="3" x2="21" y2="23"/><line x1="28" y1="2" x2="28" y2="22"/>
+        <line x1="1" y1="20" x2="34" y2="6"/>
+      </g>
+    </svg>
+    <!-- today: one morning, just kept -->
+    <svg class="tally__today" width="40" height="26" viewBox="0 0 40 26" aria-hidden="true">
+      <line x1="5" y1="2" x2="4" y2="23" stroke="#241B12" stroke-width="2.2" stroke-linecap="round"/>
+    </svg>
+    <div class="tally__rule"></div>
+    <div class="tally__label">Mornings&nbsp;kept<br>since&nbsp;1998</div>
   </div>
 
   <!-- the frame -->
@@ -276,20 +319,34 @@
 
     <h2 class="wordmark">
       RITUAL
-      <!-- the Score: one confident cut, the lame's 7-degree sweep -->
-      <svg viewBox="0 0 300 60" fill="none" aria-hidden="true">
-        <path d="M6 52 Q150 41 294 18" stroke="#C6892F" stroke-width="2.6" stroke-linecap="round"/>
+      <!-- the Score: the lame cradles the word from beneath and lifts off
+           as an "ear" past the final letter. Never crosses a letter core. -->
+      <svg viewBox="0 0 340 100" fill="none" aria-hidden="true" preserveAspectRatio="none">
+        <path d="M18 74 C 110 79.5, 205 79.5, 250 74 C 292 68, 320 46, 337 29"
+              stroke="#C6892F" stroke-width="4.6" stroke-linecap="round"/>
       </svg>
     </h2>
 
     <h1 class="promise">Tomorrow is already&nbsp;proving.</h1>
 
     <section class="reserve">
-      <div class="reserve__emblem" aria-label="The Arc of Hours — a sunrise completed">
+      <div class="reserve__emblem" aria-label="The Arc of Hours — the morning measured from 4:12 to 8:04, the baker's hour marked at 4:30">
         <svg width="96" height="96" viewBox="0 0 96 96" role="img">
-          <circle cx="48" cy="48" r="36" fill="none" stroke="#DFD2B6" stroke-width="2.5"/>
-          <path d="M13.2 38.7 A36 36 0 0 1 82.8 38.7" fill="none" stroke="#C6892F" stroke-width="4" stroke-linecap="round"/>
-          <circle cx="82.8" cy="38.7" r="3.2" fill="#C6892F"/>
+          <!-- the dial -->
+          <circle cx="48" cy="48" r="36" fill="none" stroke="#DFD2B6" stroke-width="2.4"/>
+          <!-- the protected morning, 4:12 → 8:04, rising in the Score's direction -->
+          <path d="M13.22 38.68 A36 36 0 0 1 80.63 32.78" fill="none" stroke="#C6892F" stroke-width="3.2" stroke-linecap="round"/>
+          <!-- the hours: 5, 6, 7 -->
+          <g stroke="#B0904F" stroke-width="1.5" stroke-linecap="round">
+            <line x1="22.11" y1="22.99" x2="25.71" y2="26.47"/>
+            <line x1="41.74" y1="12.55" x2="42.61" y2="17.48"/>
+            <line x1="63.78" y1="15.65" x2="61.58" y2="20.14"/>
+          </g>
+          <!-- the baker's hour, 4:30 — the one notch that matters -->
+          <line x1="15.65" y1="32.22" x2="22.83" y2="35.72" stroke="#9C6A21" stroke-width="2.2" stroke-linecap="round"/>
+          <circle cx="15.65" cy="32.22" r="2.2" fill="#9C6A21"/>
+          <!-- 8:04, now -->
+          <circle cx="80.63" cy="32.78" r="3.1" fill="#C6892F"/>
         </svg>
       </div>
       <p class="reserve__label">Protect tomorrow morning</p>
