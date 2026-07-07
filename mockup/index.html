@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RITUAL — 8:04</title>
+<link rel="icon" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><circle cx="16" cy="16" r="12" fill="none" stroke="%23DFD2B6" stroke-width="2"/><path d="M5.6 13.2 A12 12 0 0 1 26.4 13.2" fill="none" stroke="%23C6892F" stroke-width="3" stroke-linecap="round"/></svg>'>
+<style>
+  /*
+    PROJECT: RITUAL — Stage 3 mockup
+    Frame 12 · 8:04 · The Promise / Reservation
+    Static only: no JavaScript, no animation, no transitions, no interactivity.
+    Renders docs/03-visual-direction.md. Governed by docs/00-brand-dna.md.
+  */
+
+  @font-face {
+    font-family: 'Fraunces';
+    src: url('fonts/fraunces-var-latin.woff2') format('woff2');
+    font-weight: 300 600;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'Instrument Sans';
+    src: url('fonts/instrument-sans-var-latin.woff2') format('woff2');
+    font-weight: 400 700;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'Fragment Mono';
+    src: url('fonts/fragment-mono-latin.woff2') format('woff2');
+    font-weight: 400;
+    font-display: swap;
+  }
+
+  :root {
+    /* Time-of-day system, 8:04 triad (Visual Direction §3) */
+    --linen:  #ECE3D0;
+    --mist:   #F4EEE0;
+    --cream:  #DFD2B6;
+    --wheat:  #D6A94E;
+    --butter: #F3C777;
+    --honey:  #C6892F;
+    --honey-deep: #9C6A21;
+    --bistre: #3A2E22;
+    --cocoa:  #241B12;
+
+    --voice: 'Fraunces', Georgia, 'Times New Roman', serif;
+    --record: 'Instrument Sans', 'Helvetica Neue', Arial, sans-serif;
+    --instrument: 'Fragment Mono', ui-monospace, 'Courier New', monospace;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html, body { height: 100%; }
+
+  body {
+    font-family: var(--record);
+    color: var(--bistre);
+    background-color: var(--linen);
+  }
+
+  /* One light: the beam enters from the upper right and pools toward center (§4).
+     Corners fall to cream — the single-source vignette. No pure white anywhere.
+     Fixed full-viewport layer so the light can never seam or repeat. */
+  .light {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    background-image:
+      linear-gradient(112deg, rgba(244,238,224,0) 38%, rgba(246,241,230,0.85) 50%, rgba(244,238,224,0) 63%),
+      radial-gradient(120% 90% at 70% 0%, rgba(244,238,224,0.95), rgba(244,238,224,0) 55%),
+      radial-gradient(150% 130% at 50% 128%, rgba(214,169,78,0.08), rgba(214,169,78,0) 68%),
+      radial-gradient(160% 140% at 0% 105%, rgba(223,210,182,0.65), rgba(223,210,182,0) 45%),
+      radial-gradient(160% 140% at 100% 105%, rgba(223,210,182,0.5), rgba(223,210,182,0) 45%);
+  }
+
+  /* Film grain: one stock, forever (Constitution, Article X) */
+  .grain {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.045;
+    mix-blend-mode: multiply;
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="240" height="240"><filter id="g"><feTurbulence type="fractalNoise" baseFrequency="0.82" numOctaves="2" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/></filter><rect width="100%25" height="100%25" filter="url(%23g)"/></svg>');
+  }
+
+  .frame {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* Silence margin (§7): the frame's edges stay empty */
+    padding: 16vh 10vw;
+  }
+
+  /* ————— The chrome: instruments at the frame's edge, like a watch face ————— */
+
+  .chrome {
+    position: fixed;
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    font-weight: 500;
+    white-space: nowrap;
+  }
+  .chrome--menu   { top: 34px;    left: 38px; }
+  .chrome--arc    { top: 28px;    right: 38px; }
+  .chrome--clock  { bottom: 32px; left: 38px;  font-family: var(--instrument); font-size: 15px; letter-spacing: 0.08em; color: var(--honey-deep); }
+  .chrome--bake   { bottom: 32px; right: 38px; font-family: var(--instrument); font-size: 12px; letter-spacing: 0.08em; color: var(--honey-deep); opacity: 0.85; }
+  .chrome--clock small {
+    display: block;
+    font-family: var(--record);
+    font-size: 9px;
+    letter-spacing: 0.24em;
+    color: var(--bistre);
+    opacity: 0.6;
+    margin-bottom: 5px;
+  }
+
+  /* ————— The tally wall, glimpsed in daylight (Frame 12 spec) ————— */
+
+  .tally {
+    position: fixed;
+    right: 44px;
+    top: 50%;
+    transform: translateY(-58%) rotate(0.6deg);
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  /* ————— The center: the promise and the reservation ————— */
+
+  .wordmark {
+    position: relative;
+    font-family: var(--voice);
+    font-weight: 480;
+    font-size: 19px;
+    letter-spacing: 0.14em;
+    color: var(--cocoa);
+    margin-bottom: 8.5vh;
+  }
+  .wordmark svg {
+    position: absolute;
+    left: -16%;
+    top: -8%;
+    width: 132%;
+    height: 132%;
+    overflow: visible;
+  }
+
+  .promise {
+    font-family: var(--voice);
+    font-weight: 355;
+    font-size: clamp(42px, 7.2vw, 102px);
+    line-height: 1.06;
+    color: var(--cocoa);
+    text-align: center;
+    max-width: 14em;
+    font-feature-settings: 'liga' 1, 'onum' 1;
+  }
+
+  .reserve {
+    margin-top: 9.5vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .reserve__emblem {
+    position: relative;
+    width: 96px;
+    height: 96px;
+    margin-bottom: 3.6vh;
+  }
+  .reserve__emblem::before {
+    /* the one glow the accent is rationed for */
+    content: '';
+    position: absolute;
+    inset: -34px;
+    background: radial-gradient(circle, rgba(243,199,119,0.32), rgba(243,199,119,0) 65%);
+  }
+  .reserve__label {
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.26em;
+    text-transform: uppercase;
+    color: var(--bistre);
+  }
+  .reserve__count {
+    font-family: var(--instrument);
+    font-size: 30px;
+    letter-spacing: 0.06em;
+    color: var(--honey-deep);
+    margin-top: 2.4vh;
+  }
+  .reserve__count-caption {
+    font-size: 9.5px;
+    font-weight: 500;
+    letter-spacing: 0.26em;
+    text-transform: uppercase;
+    color: var(--bistre);
+    opacity: 0.55;
+    margin-top: 10px;
+  }
+
+  @media (max-width: 720px) {
+    .frame { padding: 15vh 8vw; }
+    .tally { display: none; }             /* the wall stays out of frame on small screens */
+    .chrome--menu  { top: 26px; left: 24px; }
+    .chrome--arc   { top: 20px; right: 24px; }
+    .chrome--clock { bottom: 24px; left: 24px; }
+    .chrome--bake  { bottom: 24px; right: 24px; }
+    .wordmark { margin-bottom: 7vh; }
+    .reserve  { margin-top: 8vh; }
+  }
+</style>
+</head>
+<body>
+
+  <div class="light"></div>
+  <div class="grain"></div>
+
+  <!-- chrome -->
+  <nav class="chrome chrome--menu">Menu</nav>
+
+  <div class="chrome chrome--arc" aria-label="The Arc of Hours, complete">
+    <svg width="52" height="52" viewBox="0 0 96 96" role="img">
+      <circle cx="48" cy="48" r="36" fill="none" stroke="#DFD2B6" stroke-width="2.5"/>
+      <path d="M13.2 38.7 A36 36 0 0 1 82.8 38.7" fill="none" stroke="#C6892F" stroke-width="4" stroke-linecap="round"/>
+      <circle cx="82.8" cy="38.7" r="3.2" fill="#C6892F"/>
+    </svg>
+  </div>
+
+  <div class="chrome chrome--clock">
+    <small>The Handover</small>
+    8:04
+  </div>
+
+  <div class="chrome chrome--bake">Bake &#8470;&nbsp;9,741</div>
+
+  <!-- the tally wall, glimpsed: three faded groups of five, and today's fresh mark -->
+  <div class="tally" aria-hidden="true">
+    <svg width="44" height="30" viewBox="0 0 44 30" opacity="0.13">
+      <g stroke="#3A2E22" stroke-width="2" stroke-linecap="round">
+        <line x1="5"  y1="3" x2="4"  y2="27"/><line x1="14" y1="2" x2="13" y2="26"/>
+        <line x1="23" y1="3" x2="22" y2="27"/><line x1="32" y1="2" x2="31" y2="26"/>
+        <line x1="1"  y1="22" x2="38" y2="7"/>
+      </g>
+    </svg>
+    <svg width="44" height="30" viewBox="0 0 44 30" opacity="0.19">
+      <g stroke="#3A2E22" stroke-width="2" stroke-linecap="round">
+        <line x1="5"  y1="2" x2="6"  y2="26"/><line x1="14" y1="3" x2="13" y2="27"/>
+        <line x1="23" y1="2" x2="24" y2="26"/><line x1="32" y1="3" x2="31" y2="27"/>
+        <line x1="2"  y1="23" x2="39" y2="6"/>
+      </g>
+    </svg>
+    <svg width="44" height="30" viewBox="0 0 44 30" opacity="0.27">
+      <g stroke="#3A2E22" stroke-width="2" stroke-linecap="round">
+        <line x1="5"  y1="3" x2="5"  y2="27"/><line x1="14" y1="2" x2="15" y2="26"/>
+        <line x1="23" y1="3" x2="22" y2="27"/><line x1="32" y1="2" x2="32" y2="26"/>
+        <line x1="1"  y1="21" x2="38" y2="8"/>
+      </g>
+    </svg>
+    <!-- today's mark: fresh graphite -->
+    <svg width="44" height="30" viewBox="0 0 44 30" opacity="0.6">
+      <g stroke="#241B12" stroke-width="2.2" stroke-linecap="round">
+        <line x1="5" y1="3" x2="4" y2="27"/>
+      </g>
+    </svg>
+  </div>
+
+  <!-- the frame -->
+  <main class="frame">
+
+    <h2 class="wordmark">
+      RITUAL
+      <!-- the Score: one confident cut, the lame's 7-degree sweep -->
+      <svg viewBox="0 0 300 60" fill="none" aria-hidden="true">
+        <path d="M6 52 Q150 41 294 18" stroke="#C6892F" stroke-width="2.6" stroke-linecap="round"/>
+      </svg>
+    </h2>
+
+    <h1 class="promise">Tomorrow is already&nbsp;proving.</h1>
+
+    <section class="reserve">
+      <div class="reserve__emblem" aria-label="The Arc of Hours — a sunrise completed">
+        <svg width="96" height="96" viewBox="0 0 96 96" role="img">
+          <circle cx="48" cy="48" r="36" fill="none" stroke="#DFD2B6" stroke-width="2.5"/>
+          <path d="M13.2 38.7 A36 36 0 0 1 82.8 38.7" fill="none" stroke="#C6892F" stroke-width="4" stroke-linecap="round"/>
+          <circle cx="82.8" cy="38.7" r="3.2" fill="#C6892F"/>
+        </svg>
+      </div>
+      <p class="reserve__label">Protect tomorrow morning</p>
+      <p class="reserve__count">17&thinsp;/&thinsp;40</p>
+      <p class="reserve__count-caption">Mornings protected</p>
+    </section>
+
+  </main>
+
+</body>
+</html>
