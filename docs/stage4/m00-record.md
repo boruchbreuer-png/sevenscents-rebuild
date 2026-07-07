@@ -1,5 +1,30 @@
-# M-00 — Generation Record (Round 1)
-**Status: HOLDING at the M-00 approval gate.** Two candidates generated and delivered to the owner's Higgsfield widget. Pixels not inspected in-session (CDN egress blocked); visual review is being performed externally by the owner. No scorecard was produced — none will be fabricated. No regeneration, no P-11, no build work until the owner returns a decision.
+# M-00 — Generation Record
+**Status: HOLDING at the M-00 approval gate after Round 2.** The two-round allowance is now fully spent. Pixels were not inspectable in-session in either round (CDN egress 403 by org policy; the Higgsfield MCP server does not support resource reads) — no scorecard was fabricated in either round. Visual review is the owner's, externally via the Higgsfield widget.
+
+## Round 1 verdict (owner, external review)
+- **Candidate B wins** — stronger single-source light, room geometry, 1931 presence, calmer composition, better negative space, no visible person.
+- **Candidate A rejected** — visible human hand/body presence violates the brief.
+- M-00 **not yet approved**; Round 2 ordered with Candidate B as base reference.
+
+## Round 2 — exact metadata, do not alter
+
+Both: model `seedream_v4_5` · quality `high` · aspect `16:9` · 5120×2880 · reference image: Candidate B (`489e7acb-9540-4872-a37c-c3b1b5935b61`, passed as `medias[{type:"job", role:"reference"}]`) · Prompt v2 = owner's Round-2 revisions verbatim (no people reinforced ×7 phrasings; tally wall de-ledgered to aged hand-made groups of five + one isolated fresh graphite mark; rustic/farmhouse/Pinterest negatives; groove "functional and earned, not theatrical"; jar label strata deepened; upper negative space reserved for relighting/overlays; 1924/2094 timelessness) · generated 2026-07-07 ≈18:53 UTC · cost: 1 credit for the round (2 credits total, both rounds).
+
+### Candidate C
+- **Job ID:** `e7f4c2e0-1bb0-4642-b98a-b3793d6b2ab8`
+- **Seed:** `30100`
+- Raw: `https://d8j0ntlcm91z4.cloudfront.net/user_3G8hyajw44R3O5Zf5BSpX1z91cI/hf_20260707_185330_e7f4c2e0-1bb0-4642-b98a-b3793d6b2ab8.png`
+
+### Candidate D
+- **Job ID:** `3cff50ce-c8cb-43f3-8452-7681ea49f028`
+- **Seed:** `511285`
+- Raw: `https://d8j0ntlcm91z4.cloudfront.net/user_3G8hyajw44R3O5Zf5BSpX1z91cI/hf_20260707_185330_3cff50ce-c8cb-43f3-8452-7681ea49f028.png`
+
+## Owner's Round-2 judging standard (verbatim commitments)
+Reads as RITUAL ignoring the loaf · room older than brand · one dominant light source · zero café/rustic/Pinterest cliché · geometry relightable across hours · canon present: 1931 lintel, aging tally groups of five, worn cutting groove, Mother jar label strata, single deep window beam, one fresh graphite mark, earned patina, quiet negative space.
+
+## Awaiting from the owner
+Winner (C or D or neither) · M-00 approval or rejection. If neither passes, the round allowance is exhausted — any further generation requires a new explicit allowance from the owner.
 
 ## Candidates — exact metadata, do not alter
 
