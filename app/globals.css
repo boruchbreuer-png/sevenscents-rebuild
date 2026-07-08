@@ -103,6 +103,59 @@ body {
   );
 }
 
+/* ————— Spike #1 · the impossible transition (stand-in) ————— */
+
+.t-stage {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+.t-space {
+  position: absolute;
+  inset: 0;
+  transform-style: preserve-3d;
+}
+.t-layer {
+  position: absolute;
+  /* oversized so perspective-shrink still fills the frame — no border */
+  inset: -32%;
+  backface-visibility: hidden;
+}
+.t-beam {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(42% 42% at 50% 44%, rgb(243 199 119 / 0.9), rgb(198 137 47 / 0.25) 45%, transparent 72%);
+}
+.t-fog {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(70% 60% at 50% 40%, rgb(232 200 140 / 0.5), transparent 70%);
+  filter: blur(14px);
+}
+.t-linen {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: rgb(244 238 224);
+}
+.t-still {
+  position: absolute;
+  inset: 0;
+}
+.t-caption {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 12vh;
+  text-align: center;
+  font-family: var(--font-voice), Georgia, serif;
+  font-weight: 350;
+  font-size: clamp(20px, 3vw, 34px);
+  color: #241b12;
+}
+
 /* ————— The Instrument chrome ————— */
 
 .chrome {
