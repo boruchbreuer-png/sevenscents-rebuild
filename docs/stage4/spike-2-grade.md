@@ -5,7 +5,15 @@
 *Can one base-grade plate be pushed to read correctly at 4:12, 5:40, 7:42, and 8:04 by a clock-driven grade — so generated plates and DOM scenes feel like one continuous film ("one shot")?* This is Architecture risk #2: the illusion dies if grades drift.
 
 ## Result
-**Yes — the mechanism is built and verified.** The same synthetic plate, regraded by the Dawn clock, moves from cold near-black (4:12) through ember (5:40) to lifted linen (8:04), holding one light source and one film stock throughout. Screenshots: `grade-0412 / 0540 / 0742 / 0804`.
+**Yes — the mechanism is built and verified, now on the real canon pixels.** The same plate, regraded by the Dawn clock, moves from cold near-black (4:12) through ember (5:40) to lifted linen (8:04), holding one light source and one film stock throughout.
+
+### Real-pixel verification (2026-07-08, canon M-00 + P-11)
+Ran `scratch/verify-plates.js` over the delivered plates (M-00 `m00-canon.png`, P-11 `p11-canon.png`, both 2048×1152).
+- **5:40 · 7:42 · 8:04 (M-00) and 7:42 (P-11): held on the first pass.** One morning, one film stock, one upper-left source; P-11's macro reads as the same production as M-00's wide — continuity confirmed across the two canon assets.
+- **4:12 needed one tune.** The real M-00 base is a high-key daylight room (brighter/warmer than the stand-in the keyframes were first set against), so pre-dawn read as "dim day," not "the hour no one sees." Fixed by re-tuning **only the 4:12 keyframe** darker and colder — approved `bluehour` tint + exposure + vignette, **no new color, no new look, warm half untouched**. After the tune, 4:12 reads as true cold pre-dawn: near-black room, the window a dim pale rectangle as the only light.
+- **Verdict: the canon pixels hold as one film stock across the film.** The welding pass is confirmed on real assets.
+
+Screenshots (stand-in, superseded): `grade-0412 / 0540 / 0742 / 0804`. Canon: `canon-m00-0412 / 0540 / 0742 / 0804`, `canon-p11-0742`.
 
 ## How it works
 - `lib/grade.ts` — the grade as a keyframe table at the film's load-bearing hours. Every tint is an **approved palette value** (bluehour, ember, amber, cream, linen); the grade is the palette, not a new one. Pure and interpolating; `gradeAt(minutes)` → exposure, contrast, saturation, a warmth unifier, a white-balance tint, and vignette strength.

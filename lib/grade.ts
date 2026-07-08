@@ -42,7 +42,10 @@ interface GKey {
 // Keyframes at the film's load-bearing hours. Approved tints only:
 // bluehour · ember · amber · cream · linen.
 const GKEYS: GKey[] = [
-  { m: 252, g: { brightness: 0.46, contrast: 1.12, saturate: 0.62, sepia: 0.18, tint: hex('#1E2A2E'), tintAlpha: 0.30, vignette: 0.85 } }, // 4:12
+  // 4:12 re-tuned against the real M-00 (a high-key daylight base): pushed
+  // darker and colder so pre-dawn reads as night, not dim day. Approved
+  // bluehour + exposure + vignette only — no new color, no new look.
+  { m: 252, g: { brightness: 0.28, contrast: 1.16, saturate: 0.45, sepia: 0.04, tint: hex('#1E2A2E'), tintAlpha: 0.50, vignette: 0.96 } }, // 4:12
   { m: 340, g: { brightness: 0.70, contrast: 1.06, saturate: 0.96, sepia: 0.34, tint: hex('#B4471B'), tintAlpha: 0.32, vignette: 0.64 } }, // 5:40 ember
   { m: 405, g: { brightness: 0.90, contrast: 1.02, saturate: 1.00, sepia: 0.14, tint: hex('#C98A34'), tintAlpha: 0.14, vignette: 0.50 } }, // 6:45 amber
   { m: 462, g: { brightness: 1.00, contrast: 1.00, saturate: 1.00, sepia: 0.05, tint: hex('#DFD2B6'), tintAlpha: 0.07, vignette: 0.40 } }, // 7:42 cream
