@@ -1,5 +1,33 @@
-# H-01 — Generation Record (Round 1)
-**Status: HOLDING at the H-01 review gate.** Two candidates generated per the approved brief + owner's five refinements, delivered to the owner's Higgsfield widget. Same protocol as M-00/P-11: pixels not inspectable in-session (CDN egress blocked; MCP resource reads unsupported) — **no scorecard produced**; review is the owner's, externally. One further round of ≤2 remains available only on the owner's order.
+# H-01 — Generation Record
+**Status: HOLDING at the H-01 review gate after Round 2. The two-round allowance is now fully spent.** Pixels not inspectable in-session in either round (CDN egress blocked; MCP resource reads unsupported) — **no scorecard produced in either round**; review is the owner's, externally via the widget.
+
+## Round 1 verdict (owner, external review)
+- **H01-B wins** (calmer exhale, stronger already-cut logic, slices as quiet evidence, more usable arrival composition). **H01-A rejected.**
+- **Both failed one brief rule:** a visible lamp/fixture in the upper-left — the light must be morning from upper-left **off-frame only**.
+- Round 2 ordered with H01-B as the reference direction and ten exact revisions.
+
+## Round 2 — exact metadata, do not alter
+
+Both: model `seedream_v4_5` · quality `high` · 16:9 · 5120×2880 · **reference: H01-B** (`c0ab75ec-bf2c-4c80-8342-cf0315f430fd`, per owner's order; role auto-coerced to `image_references`) · Prompt v2 = the owner's ten revisions carried verbatim (hardened light rule: no lamp/fixture/pendant/sconce/bulb/candle, "nothing in the frame emits light," source upper-left out of frame only; room "even more implied and dissolved," no identifiable decor; no dramatic missing wedge / hero-cut; cup "going cool… no fresh steam plume, not staged"; upper half "protected, quiet, empty"; no breakfast-ad/lifestyle/café, no extra props) · generated 2026-07-08 ≈16:34 UTC · cost: 1 credit (project total: 5).
+
+### Candidate H01-C
+- **Job ID:** `bf2c8ec3-c759-4d82-89e2-13a5d7130c2e`
+- **Seed:** `778655`
+- Raw: `https://d8j0ntlcm91z4.cloudfront.net/user_3G8hyajw44R3O5Zf5BSpX1z91cI/hf_20260708_163414_bf2c8ec3-c759-4d82-89e2-13a5d7130c2e.png`
+
+### Candidate H01-D
+- **Job ID:** `bc4ce1a2-f18c-4b09-b1ab-f3574a56f84f`
+- **Seed:** `451965`
+- Raw: `https://d8j0ntlcm91z4.cloudfront.net/user_3G8hyajw44R3O5Zf5BSpX1z91cI/hf_20260708_163414_bc4ce1a2-f18c-4b09-b1ab-f3574a56f84f.png`
+
+## Owner's Round-2 review standard (verbatim commitments)
+Same production as M-00/P-11 · Handover exhale, not crescendo · RITUAL without the loaf · implied and universal room · one dominant source, upper-left off-frame only · canon elements present · zero forbidden signals · usable arrival plate with clean upper half and calm landing.
+
+## Awaiting from the owner
+Winner (C / D / neither) · H-01 approval or rejection. **If neither passes, the allowance is exhausted — further generation requires a new explicit allowance.** On canonization: winner → `public/assets/plates/h01-canon.png`, registered in `lib/plates.ts`, replaces the canvas placeholder in the continuity scene.
+
+---
+# Round 1 (historical)
 
 ## Round 1 — exact metadata, do not alter
 
