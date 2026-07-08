@@ -41,7 +41,7 @@ const CAM: { t: number; z: number; y: number }[] = [
   { t: 0.55, z: -0.7, y: 0.0 }, // through the crust — inside now
   { t: 0.86, z: -10.6, y: 0.0 }, // down the crumb, the window filling ahead
   { t: 0.95, z: -12.9, y: 0.0 }, // at the window — the crumb hole is the window
-  { t: 1.0, z: -13.5, y: 0.0 }, // through it, at your table with the loaf
+  { t: 1.0, z: -13.9, y: 0.0 }, // through it — the H-01 arrival plate fills the frame
 ];
 
 function pathAt(t: number): { z: number; y: number } {

@@ -144,10 +144,9 @@ function Crumb({ tRef }: { tRef: MutableRefObject<number> }) {
   );
 }
 
-/** The window at the tunnel's end (registered to the bore), then the room beyond. */
-function ExitAndRoom({ tRef }: { tRef: MutableRefObject<number> }) {
+/** The window at the tunnel's end (registered to the bore), then the arrival plate. */
+function ExitAndRoom({ tRef, arrivalSrc }: { tRef: MutableRefObject<number>; arrivalSrc: string | null }) {
   const light = useRef<THREE.PointLight>(null);
-  const roomTex = useMemo(() => makeRoomTexture(), []);
   useFrame(() => {
     if (light.current) light.current.intensity = 2 + continuityAt(tRef.current).exit * 6;
   });
@@ -171,12 +170,37 @@ function ExitAndRoom({ tRef }: { tRef: MutableRefObject<number> }) {
           </mesh>
         ))}
       </group>
-      {/* the morning room beyond — the camera passes through the window into it */}
-      <mesh position={[0, 0, -17.0]}>
-        <planeGeometry args={[12, 6.75]} />
-        <meshBasicMaterial map={roomTex} toneMapped={false} />
-      </mesh>
+      {/* the Handover arrival — H-01 canon plate fills the frame (placeholder until it lands) */}
+      {arrivalSrc ? (
+        <Suspense fallback={<PlaceholderRoom />}>
+          <H01Room src={arrivalSrc} />
+        </Suspense>
+      ) : (
+        <PlaceholderRoom />
+      )}
     </group>
+  );
+}
+
+// The H-01 canon plate, sized 16:9 to fill the frame at the camera's landing.
+function H01Room({ src }: { src: string }) {
+  const tex = useLoader(THREE.TextureLoader, src);
+  tex.colorSpace = THREE.SRGBColorSpace;
+  return (
+    <mesh position={[0, 0, -19.0]}>
+      <planeGeometry args={[6.9, 3.9]} />
+      <meshBasicMaterial map={tex} toneMapped={false} fog={false} />
+    </mesh>
+  );
+}
+
+function PlaceholderRoom() {
+  const roomTex = useMemo(() => makeRoomTexture(), []);
+  return (
+    <mesh position={[0, 0, -19.0]}>
+      <planeGeometry args={[6.9, 3.9]} />
+      <meshBasicMaterial map={roomTex} toneMapped={false} fog={false} />
+    </mesh>
   );
 }
 
@@ -210,7 +234,13 @@ function LinenWash({ tRef }: { tRef: MutableRefObject<number> }) {
   );
 }
 
-export default function ContinuityScene({ tRef }: { tRef: MutableRefObject<number> }) {
+export default function ContinuityScene({
+  tRef,
+  arrivalSrc = null,
+}: {
+  tRef: MutableRefObject<number>;
+  arrivalSrc?: string | null;
+}) {
   return (
     <Canvas
       gl={{ antialias: true, powerPreference: 'high-performance' }}
@@ -224,7 +254,7 @@ export default function ContinuityScene({ tRef }: { tRef: MutableRefObject<numbe
         <LoafPortal tRef={tRef} />
       </Suspense>
       <Crumb tRef={tRef} />
-      <ExitAndRoom tRef={tRef} />
+      <ExitAndRoom tRef={tRef} arrivalSrc={arrivalSrc} />
       <LinenWash tRef={tRef} />
     </Canvas>
   );

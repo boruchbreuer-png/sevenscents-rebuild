@@ -16,9 +16,11 @@ const ContinuityScene = dynamic(() => import('./ContinuityScene'), { ssr: false 
 export default function ContinuityLab({
   reduced = false,
   staticT = null,
+  arrivalSrc = null,
 }: {
   reduced?: boolean;
   staticT?: number | null;
+  arrivalSrc?: string | null;
 }) {
   const tRef = useRef(staticT ?? 0);
   const target = useRef(staticT ?? 0);
@@ -69,7 +71,7 @@ export default function ContinuityLab({
       }}
       style={{ position: 'absolute', inset: 0, touchAction: 'none', cursor: 'ns-resize' }}
     >
-      <ContinuityScene tRef={tRef} />
+      <ContinuityScene tRef={tRef} arrivalSrc={arrivalSrc} />
       <div
         style={{
           position: 'absolute',

@@ -34,4 +34,11 @@ export const PLATES: Record<string, Plate> = {
     file: '/assets/plates/p11-canon.png',
     note: 'Canon macro. Texture / material source for the First Cut 3D derivation.',
   },
+  'H-01': {
+    id: 'H-01',
+    beat: '8:04 handover arrival',
+    canonJob: 'bf2c8ec3-c759-4d82-89e2-13a5d7130c2e',
+    file: '/assets/plates/h01-canon.png',
+    note: 'Canon arrival. The room the impossible transition resolves into (the Handover).',
+  },
 };

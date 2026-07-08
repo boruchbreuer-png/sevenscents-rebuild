@@ -1,5 +1,18 @@
 # H-01 — Generation Record
-**Status: HOLDING at the H-01 review gate after Round 2. The two-round allowance is now fully spent.** Pixels not inspectable in-session in either round (CDN egress blocked; MCP resource reads unsupported) — **no scorecard produced in either round**; review is the owner's, externally via the widget.
+**Status: ✅ CANONIZED 2026-07-08.**
+
+> **THE ARRIVAL CANON — H-01 = H01-C**
+> **Job ID `bf2c8ec3-c759-4d82-89e2-13a5d7130c2e` · seed `778655`** · seedream_v4_5 · high · 16:9 · 5120×2880 · reference: H01-B · Prompt v2 (no visible light source; upper-left off-frame morning; implied/dissolved room; already-cut loaf, no hero-cut; subordinate cooling cup; protected upper half; received-not-arranged).
+> Owner's verdict: the calmer, more usable arrival plate — the exhale, not a crescendo; no visible lamp/fixture, light reads upper-left off-frame, implied dissolved room, subordinate cup, already-cut loaf without theatrics, clean quiet upper space, table received not arranged. "The visitor has arrived into their own morning, not a styled breakfast set."
+> **Local file:** `public/assets/plates/h01-canon.png` (path registered in `lib/plates.ts`; replaces the canvas placeholder in the continuity arrival). Do not reopen H-01 unless explicitly directed.
+> **H01-D** (`bc4ce1a2-f18c-4b09-b1ab-f3574a56f84f`, seed `451965`) preserved as **rejected-but-strong alternate** — bright top-left strip risks reading as a visible light/window; cup/table slightly more arranged. Never referenced downstream.
+
+## The canon chain (downstream references these three, and only these)
+- **M-00** = Candidate D · `3cff50ce-c8cb-43f3-8452-7681ea49f028` — room / continuity master.
+- **P-11** = P11-B · `b464f504-4f3c-47bb-8912-be0734b49b07` — macro product / material master.
+- **H-01** = H01-C · `bf2c8ec3-c759-4d82-89e2-13a5d7130c2e` — Handover arrival plate.
+
+Historical record below. Pixels were not inspectable in-session in either round (CDN blocked; MCP resource reads unsupported) — no scorecard fabricated; review was the owner's, externally.
 
 ## Round 1 verdict (owner, external review)
 - **H01-B wins** (calmer exhale, stronger already-cut logic, slices as quiet evidence, more usable arrival composition). **H01-A rejected.**
