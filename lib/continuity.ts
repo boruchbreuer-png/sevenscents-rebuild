@@ -39,8 +39,9 @@ const CAM: { t: number; z: number; y: number }[] = [
   { t: 0.0, z: 6.4, y: 0.15 },
   { t: 0.42, z: 1.2, y: 0.05 }, // arriving at the opening
   { t: 0.55, z: -0.7, y: 0.0 }, // through the crust — inside now
-  { t: 0.9, z: -7.6, y: 0.0 }, // down the crumb, the window ahead
-  { t: 1.0, z: -9.4, y: 0.0 }, // the window fills, the morning beyond it
+  { t: 0.86, z: -10.6, y: 0.0 }, // down the crumb, the window filling ahead
+  { t: 0.95, z: -12.9, y: 0.0 }, // at the window — the crumb hole is the window
+  { t: 1.0, z: -13.5, y: 0.0 }, // through it, at your table with the loaf
 ];
 
 function pathAt(t: number): { z: number; y: number } {
@@ -70,7 +71,9 @@ export function continuityAt(t: number): Continuity {
   const { z, y } = pathAt(p);
   const cut = smooth(0.0, 0.45, p); // the cut opens as the camera approaches
   const exit = smooth(0.5, 0.96, p);
-  const linen = smooth(0.92, 1.0, p) * 0.2;
+  // a bloom of morning light at the threshold — peaks as we cross the window,
+  // then clears so the room reads. Locks the handoff (not a hard cut).
+  const linen = smooth(0.88, 0.95, p) * (1 - smooth(0.95, 1.0, p)) * 0.62;
   const fog = p < 0.6 ? mixC(HONEY, AMBER, smooth(0.2, 0.6, p)) : mixC(AMBER, LINEN, smooth(0.6, 0.98, p));
   const phase: Phase = p < 0.45 ? 'the cut' : p < 0.56 ? 'the threshold' : p < 0.9 ? 'the crumb' : 'the handover';
   return { cut, camZ: z, camY: y, exit, linen, fog, phase, minutes: 462 + 22 * p };

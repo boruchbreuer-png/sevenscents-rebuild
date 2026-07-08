@@ -33,7 +33,7 @@ export default async function ContinuityPage({
           color: 'rgb(198 137 47 / 0.7)',
         }}
       >
-        Spike&nbsp;#4 · first cut → handover · stand-in
+        Spike&nbsp;#5 · crumb + registration · stand-in
       </div>
     </main>
   );
