@@ -103,6 +103,46 @@ body {
   );
 }
 
+/* ————— The film route: fixed cinematic stages + scrolling copy ————— */
+
+.film-scroll {
+  position: relative;
+  height: 780vh; /* the length of the morning */
+}
+.film-stage {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  will-change: opacity;
+}
+.film-stage--ending {
+  z-index: 4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* the settled 8:04 linen morning — the approved Frame 12, fixed regardless
+     of the live clock so the reservation always reads dark-on-linen */
+  background: #ece3d0;
+  --d-ground: 236 227 208;
+  --d-ink: 36 27 18;
+  --d-inst: 156 106 33;
+}
+.film-stage img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.film-beat {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: min(84vw, 60rem);
+  text-align: center;
+  z-index: 2;
+}
+
 /* ————— Spike #1 · the impossible transition (stand-in) ————— */
 
 .t-stage {

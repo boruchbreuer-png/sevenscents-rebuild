@@ -5,7 +5,7 @@ import { Canvas, useFrame, useThree, useLoader } from '@react-three/fiber';
 import { Suspense, useMemo, useRef, type MutableRefObject } from 'react';
 import { continuityAt } from '@/lib/continuity';
 
-const P11 = '/assets/plates/p11-canon.png';
+const P11 = '/assets/plates/p11-canon.webp';
 
 function mulberry32(a: number) {
   return function () {
