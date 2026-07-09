@@ -89,6 +89,44 @@ export function momentCenter(m: Moment): number {
 }
 
 /**
+ * The plate's native aspect (M-00 / P-11 / H-01 are all 2048×1152 = 16:9).
+ * Cover-fit crops the axis the viewport is short on; the projection below keeps
+ * whichever prop is in focus inside the crop — landscape ≈16:9 is a no-op.
+ */
+export const PLATE_ASPECT = 16 / 9;
+
+export interface Projection {
+  /** object-position x for the plate img (0..1); y is fixed at 0.5. */
+  objX: number;
+  /** map an image-fraction x to its on-screen viewport fraction. */
+  x: (cx: number) => number;
+  /** map an image-fraction y to its on-screen viewport fraction. */
+  y: (cy: number) => number;
+}
+
+/**
+ * Given the viewport aspect and where the camera is pointed (camCx, image
+ * fraction), return how to pan the cover-fit plate so the focused prop lands in
+ * frame, plus a mapping from any image point to its on-screen position — used to
+ * keep the pooled light and the live layers registered to their props.
+ *
+ * On a viewport at or wider than 16:9 there is no horizontal crop, so objX is
+ * 0.5 and x(cx)=cx — desktop framing is untouched. On portrait the plate pans
+ * horizontally to centre the focused prop (a gentle dolly, no zoom needed).
+ */
+export function project(viewportAspect: number, camCx: number): Projection {
+  const vX = Math.min(1, viewportAspect / PLATE_ASPECT); // visible width fraction of the plate
+  const vY = Math.min(1, PLATE_ASPECT / viewportAspect); // visible height fraction
+  const tX = vX < 1 ? clamp01((camCx - vX / 2) / (1 - vX)) : 0.5; // object-position x that centres camCx
+  const map = (c: number, t: number, v: number) => (v < 1 ? clamp01((c - t * (1 - v)) / v) : c);
+  return {
+    objX: tX,
+    x: (cx: number) => map(cx, tX, vX),
+    y: (cy: number) => map(cy, 0.5, vY),
+  };
+}
+
+/**
  * The interpolated camera focus at scroll `p`: a single continuous glide from
  * prop to prop across the room, easing between each moment's resting focus.
  * Before the first / after the last moment it holds that end's framing.

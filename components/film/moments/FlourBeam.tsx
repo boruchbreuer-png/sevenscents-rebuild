@@ -34,10 +34,11 @@ export default function FlourBeam({ opacity, active, still }: LayerProps) {
     const g = c.getContext('2d');
     if (!g) return;
     g.clearRect(0, 0, W, H);
-    // the beam: a soft diagonal column, brightest near the window (upper-left)
+    // the beam: a soft diagonal column, brightest near the window (upper-left).
+    // Kept faint so it reinforces the plate's own shaft without reading as a box.
     const beam = g.createLinearGradient(0, 0, W, H);
-    beam.addColorStop(0, 'rgba(214,214,206,0.16)');
-    beam.addColorStop(0.5, 'rgba(200,196,180,0.06)');
+    beam.addColorStop(0, 'rgba(214,214,206,0.10)');
+    beam.addColorStop(0.5, 'rgba(200,196,180,0.035)');
     beam.addColorStop(1, 'rgba(200,196,180,0)');
     g.fillStyle = beam;
     g.fillRect(0, 0, W, H);

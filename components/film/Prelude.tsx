@@ -1,9 +1,9 @@
 'use client';
 
-import { memo, useEffect, useRef } from 'react';
+import { memo, useEffect, useRef, useState } from 'react';
 import PlateGrade from '@/components/engine/PlateGrade';
 import { PLATES } from '@/lib/plates';
-import { MOMENTS, focusAt, momentOpacity, type Moment, type MomentId } from '@/lib/prelude';
+import { MOMENTS, PLATE_ASPECT, focusAt, momentOpacity, project, type Moment, type MomentId } from '@/lib/prelude';
 import type { LayerProps, PointerRef } from './moments/kit';
 import Mother from './moments/Mother';
 import FlourBeam from './moments/FlourBeam';
@@ -100,6 +100,16 @@ export default function Prelude({
   reduced: boolean;
 }) {
   const pointer: PointerRef = useRef({ x: 0.5, y: 0.5 });
+  // viewport aspect drives the cover-crop projection; 16:9 default so SSR and
+  // desktop are a no-op (never a pan where none is needed).
+  const [aspect, setAspect] = useState(PLATE_ASPECT);
+
+  useEffect(() => {
+    const onResize = () => setAspect(window.innerWidth / window.innerHeight);
+    onResize();
+    window.addEventListener('resize', onResize);
+    return () => window.removeEventListener('resize', onResize);
+  }, []);
 
   useEffect(() => {
     if (reduced) return;
@@ -111,18 +121,24 @@ export default function Prelude({
     return () => window.removeEventListener('pointermove', onMove);
   }, [reduced]);
 
-  const cam = reduced ? { cx: 0.5, cy: 0.45, scale: 1 } : focusAt(p);
+  // Reduced motion: keep the horizontal framing following the moments (so mobile
+  // still frames each prop) but drop the zoom and vertical drift — no push, calm.
+  const f = focusAt(p);
+  const cam = reduced ? { cx: f.cx, cy: 0.45, scale: 1 } : f;
+  const proj = project(aspect, cam.cx);
+  const originX = proj.x(cam.cx);
+  const originY = proj.y(cam.cy);
 
   return (
     <div className="prelude" style={{ opacity }}>
-      {/* the camera: the canon plate, pushed toward the prop in focus */}
+      {/* the camera: the canon plate, panned + pushed toward the prop in focus */}
       <div
         className="prelude-cam"
-        style={{ transformOrigin: `${cam.cx * 100}% ${cam.cy * 100}%`, transform: `scale(${cam.scale})` }}
+        style={{ transformOrigin: `${originX * 100}% ${originY * 100}%`, transform: `scale(${cam.scale})` }}
       >
         <PlateGrade>
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src={PLATES['M-00'].file} alt="" />
+          <img src={PLATES['M-00'].file} alt="" style={{ objectPosition: `${proj.objX * 100}% 50%` }} />
         </PlateGrade>
       </div>
 
@@ -130,25 +146,30 @@ export default function Prelude({
       <div
         className="prelude-pool"
         style={{
-          background: `radial-gradient(72% 64% at ${cam.cx * 100}% ${cam.cy * 100}%, rgb(var(--d-ground) / 0) 30%, rgb(var(--d-ground) / 0.5) 76%, rgb(var(--d-ground) / 0.8) 100%)`,
+          background: `radial-gradient(72% 64% at ${originX * 100}% ${originY * 100}%, rgb(var(--d-ground) / 0) 30%, rgb(var(--d-ground) / 0.5) 76%, rgb(var(--d-ground) / 0.8) 100%)`,
         }}
       />
 
-      {/* the moments, each pinned to its prop's pool of light */}
+      {/* the moments, each pinned to its prop's on-screen pool of light */}
       {MOMENTS.map((m: Moment) => {
         if (m.id === 'establish') return null;
         const op = momentOpacity(p, m);
+        const active = op > 0.015;
         const box = BOX[m.id];
+        // project only the visible moment; faded ones keep a stable position so
+        // their memoized slot doesn't re-render as the camera glides.
+        const sx = active ? proj.x(m.focus.cx) : m.focus.cx;
+        const sy = active ? proj.y(m.focus.cy) : m.focus.cy;
         return (
           <MomentSlot
             key={m.id}
             id={m.id}
-            cx={m.focus.cx}
-            cy={m.focus.cy}
+            cx={sx}
+            cy={sy}
             w={box.w}
             h={box.h}
             opacity={op}
-            active={op > 0.015}
+            active={active}
             still={reduced}
             pointer={pointer}
           />

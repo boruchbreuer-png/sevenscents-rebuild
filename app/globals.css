@@ -204,6 +204,16 @@ body {
 .moment-canvas--beam {
   mix-blend-mode: screen; /* motes and bubbles add light over the dark plate */
 }
+/* feather the canvas edges so neither layer reads as a rectangle (visible only
+   once the plate pans on portrait); the beam feather leans toward its source */
+.moment-canvas--beam {
+  -webkit-mask-image: radial-gradient(74% 82% at 42% 38%, #000 42%, transparent 100%);
+  mask-image: radial-gradient(74% 82% at 42% 38%, #000 42%, transparent 100%);
+}
+.moment-canvas--jar {
+  -webkit-mask-image: radial-gradient(70% 76% at 50% 54%, #000 46%, transparent 100%);
+  mask-image: radial-gradient(70% 76% at 50% 54%, #000 46%, transparent 100%);
+}
 
 /* the fold — an honest placeholder: warm floured focus + the Score arc divider */
 .moment-fold {
@@ -294,15 +304,16 @@ body {
   height: 100%;
   overflow: visible;
 }
+/* the fissures + song develop with --proof (0..1), driven by stillness */
 .moment-crackle__crack {
   stroke-dasharray: 1;
-  stroke-dashoffset: 1;
-  animation: draw-stroke 1.6s ease forwards;
+  stroke-dashoffset: clamp(0, calc(1 - var(--proof, 0) * var(--k, 1)), 1);
 }
 .moment-crackle__seis {
   stroke-dasharray: 1;
-  stroke-dashoffset: 1;
-  animation: draw-stroke 2.4s ease 0.4s forwards;
+  stroke-dashoffset: clamp(0, calc(1 - var(--proof, 0)), 1);
+  opacity: calc(0.4 + 0.6 * var(--proof, 0));
+  filter: drop-shadow(0 0 calc(3px * var(--proof, 0)) rgb(var(--d-inst, 243 199 119) / 0.5));
 }
 @keyframes draw-stroke {
   to { stroke-dashoffset: 0; }
