@@ -40,4 +40,17 @@ Generated through the **Higgsfield connector**, **referencing the existing canon
 **REMOVE THE LOAF →** with the dough deleted, the frame must still read RITUAL on the single warm beam + the Score-arc fold line + the film-stock grade + the Record-caps fact. Frame 04 is specified at 3–4 carriers; the plate must clear that. And the **continuity check:** placed beside M-00 and P-11 in sequence, it must read as the same room, same morning, same lens, same stock — if the grade drifts, it is wrong.
 
 ---
-*Brief only. Do not generate until this is approved. On approval: one master still via the Higgsfield connector, referencing M-00 + P-11, held at the review gate before canonization — same process as M-00 / P-11 / H-01.*
+
+## Round 1 — generated, holding at the F-01 review gate (NOT integrated)
+Approved and generated 2026-07-10 through the Higgsfield connector. Both candidates reference **P-11** (`b464f504…`, primary — macro material/lens) + **M-00** (`3cff50ce…`, room/light/grade) as `image_references`, matching the canon production. Neither is in `lib/plates.ts` or wired into the site — awaiting selection at the gate.
+
+| Candidate | Direction | Higgsfield job ID | Seed |
+|---|---|---|---|
+| **F01-A** | the fold — restrained floured fingertips enter lower-right, lifting one edge of the slack dough over itself; translucent membrane where the beam grazes the lift | `c87ac7c0-ec8c-459d-a630-b127038d178f` | `574731` |
+| **F01-B** | the stretch — a soft drape of extensible dough at the windowpane, beam glowing amber through the thinned membrane; a single partial hand barely present at the left edge | `3911d6b5-1350-4130-9d25-26fdd2b9b2e5` | `321460` |
+
+- **Model:** `seedream_v4_5` (same as M-00 / P-11) · **quality:** high · **aspect:** 16:9 · **dimensions:** 5120×2880.
+- **Cost:** 1 credit each, 2 total (balance 33 → 31).
+- **Review:** rendered in the Higgsfield widget (job IDs above). The session's egress proxy blocks the Higgsfield CDN by org policy (403), so the owner reviews/downloads from the widget — same flow as the canon plates.
+
+*Awaiting the gate: pick A or B (or request a Round 2). On selection, the winner is upscaled/compressed like the canon plates, committed to `public/assets/plates/`, registered in `lib/plates.ts` as `F-01`, and the placeholder `Fold.tsx` retires — that step is the integration, not this one.*
