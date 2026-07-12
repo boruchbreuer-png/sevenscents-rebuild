@@ -48,7 +48,15 @@ const RM_ARRIVAL_IN = [0.84, 0.92] as const;
 // 100vh viewport this maps a fraction to the container %-offset that centres it.
 const beatTop = (at: number) => at * 88.9 + 5.6;
 
-export default function Film({ arrivalSrc, staticP = null }: { arrivalSrc: string | null; staticP?: number | null }) {
+export default function Film({
+  arrivalSrc,
+  foldSrc = null,
+  staticP = null,
+}: {
+  arrivalSrc: string | null;
+  foldSrc?: string | null;
+  staticP?: number | null;
+}) {
   const tRef = useRef(staticP ?? 0);
   const [p, setP] = useState(staticP ?? 0);
   const [reduced, setReduced] = useState(false);
@@ -107,7 +115,7 @@ export default function Film({ arrivalSrc, staticP = null }: { arrivalSrc: strin
       </div>
 
       {/* Acts I–II — the prelude (handles its own reduced-motion stills) */}
-      <Prelude p={p} opacity={preludeOpacity} reduced={reduced} />
+      <Prelude p={p} opacity={preludeOpacity} reduced={reduced} foldSrc={foldSrc} />
 
       {/* Act III */}
       {reduced ? (

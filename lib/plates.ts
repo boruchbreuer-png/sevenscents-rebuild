@@ -41,4 +41,20 @@ export const PLATES: Record<string, Plate> = {
     file: '/assets/plates/h01-canon.webp',
     note: 'Canon arrival. The room the impossible transition resolves into (the Handover).',
   },
+  'F-01': {
+    id: 'F-01',
+    beat: '5:10 the fold',
+    canonJob: '7c1dc376-c53b-4960-8277-671b9a63ccad',
+    file: '/assets/plates/f01-canon.webp',
+    note: 'Canon fold (F01-R2A, seed 923138). One deliberate fold, fingertips lower-right, 5:10 ember-to-wheat. Until the webp is produced, the raw widget download lands as f01-canon.png — the route falls back to it automatically.',
+  },
 };
+
+/**
+ * The formats a plate may be present in, preferred first: the optimized webp,
+ * then the raw canon png as uploaded from the Higgsfield widget (H-01 and F-01
+ * both land this way while the CDN is egress-blocked).
+ */
+export function plateVariants(p: Plate): string[] {
+  return [p.file, p.file.replace(/\.webp$/, '.png')];
+}

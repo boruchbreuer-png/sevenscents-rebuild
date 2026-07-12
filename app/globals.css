@@ -215,7 +215,24 @@ body {
   mask-image: radial-gradient(70% 76% at 50% 54%, #000 46%, transparent 100%);
 }
 
-/* the fold — an honest placeholder: warm floured focus + the Score arc divider */
+/* 5:10 — the fold: the canon F-01 plate, welded by the same grade, dissolving
+   over the room on the fold's envelope; the Score arc rides it */
+.prelude-fold {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  will-change: opacity;
+}
+.prelude-fold__score {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+/* the fold — an honest placeholder: warm floured focus + the Score arc divider
+   (renders only while the F-01 canon file is not yet on disk) */
 .moment-fold {
   position: absolute;
   inset: 0;

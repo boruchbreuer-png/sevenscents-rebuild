@@ -13,6 +13,7 @@
 | **M-00** — master room / continuity | Candidate D | `3cff50ce-c8cb-43f3-8452-7681ea49f028` | `public/assets/plates/m00-canon.png` (2048×1152) |
 | **P-11** — macro product / material | P11-B | `b464f504-4f3c-47bb-8912-be0734b49b07` | `public/assets/plates/p11-canon.png` (2048×1152) |
 | **H-01** — Handover arrival | H01-C | `bf2c8ec3-c759-4d82-89e2-13a5d7130c2e` | `public/assets/plates/h01-canon.png` (5120×2880, **23.7 MB raw — must be compressed**) |
+| **F-01** — the fold (5:10) | F01-R2A (seed 923138) | `7c1dc376-c53b-4960-8277-671b9a63ccad` | **NOT LANDED** — egress blocks the Higgsfield CDN; owner uploads widget download as `public/assets/plates/f01-canon.png` (renders with zero code changes; wired + verified) |
 
 Rejected-but-preserved alternates: M-00 C (`e7f4c2e0…`), P-11 A (`cd52ec5f…`), H-01 D (`bc4ce1a2…`). Downstream references M-00/P-11/H-01 **only**. Registered in `lib/plates.ts`.
 
@@ -31,7 +32,8 @@ Rejected-but-preserved alternates: M-00 C (`e7f4c2e0…`), P-11 A (`cd52ec5f…`
 - **Production Pass 1:** full `/` route assembled end to end (approved directionally).
 - **Production Pass 2:** Acts I–II built out — the prelude now carries the full ritual before the climax (six moments above), the emotional build runs dark→ember→wheat with the count climbing, and the cooling loaf hands into the First Cut via a match-dissolve.
 - **Production Pass 3 (this pass):** mobile framing fixed (all six moments frame on portrait now — verified 390×844), Crackle Proofing wired (still → `--proof` 0.18→0.87 over ~2.6s; moving → 0.10), Fold asset brief written for review. Out of spike mode; normal coding decisions no longer need per-step approval.
-- **Still rough / deferred:** the **Fold** is still the honest placeholder — its asset brief is ready (`docs/fold-asset-brief.md`); needs sign-off before generation. Not yet touched (correctly, per brief): live loaves counter, Balanced-tier video fallback, final polish.
+- **F-01 canonized (2026-07-12):** F01-R2A approved as canon after two Higgsfield rounds (R2B preserved as rejected alternate; full record in `docs/fold-asset-brief.md`). Registered in `lib/plates.ts`; the Prelude cross-dissolves the graded F-01 full-frame on the fold envelope (Score arc + label stay; placeholder auto-retires when the file exists). Wiring verified in all three states (webp / png / absent→placeholder) with a temporary stand-in, never committed. **Blocked on the binary only:** egress 403s both Higgsfield hosts — owner uploads the widget download as `public/assets/plates/f01-canon.png`; a later pass compresses it to `f01-canon.webp` (the preferred variant, same as H-01's flow).
+- **Still rough / deferred:** land + compress `f01-canon.png`; tune the fold pool/arc against the real pixels. Not yet touched (correctly, per brief): live loaves counter, Balanced-tier video fallback, final polish.
 
 ## 5 · Forbidden (hard rules)
 - ❌ No new creative direction; no new concepts.

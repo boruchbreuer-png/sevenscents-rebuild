@@ -73,3 +73,11 @@ Generated 2026-07-12. Both candidates reference **F01-B** (`3911d6b5…`, first 
 - **Review:** rendered in the Higgsfield widget (job IDs above); the session's egress policy still blocks the CDN (403), so pixels are reviewed there — no self-scorecard.
 
 *Awaiting the gate: pick R2A or R2B as F-01 (or request a Round 3). Integration only on selection.*
+
+## Round 2 verdict — F-01 CANONIZED (owner review, 2026-07-12)
+- **F-01 = F01-R2A** — job `7c1dc376-c53b-4960-8277-671b9a63ccad`, seed `923138`, `seedream_v4_5`, high, 16:9, 5120×2880. Approved as canon: reads immediately as one deliberate fold; dough the hero; hand quiet evidence; restrained, believable, intimate; no windowpane/tutorial read. **Immutable — never reopen** (joins M-00 / P-11 / H-01).
+- **F01-R2B rejected, preserved as alternate history** — job `bc2b1ad7-235f-453b-a701-bbfe686a9a03`, seed `178224`. Useful room continuity, but too much person: two hands, forearm presence, instructional energy.
+- No further generation. F-01 total spend: 4 credits across two rounds.
+
+### Landing status
+The session's egress policy blocks both Higgsfield hosts (CloudFront + upload.higgsfield.ai, 403 verified), so the binary cannot be fetched from here — the same limitation H-01 hit, resolved then by the owner downloading the canon job from the widget and uploading it to the repo. **F-01 is fully registered and wired: the owner uploads the widget download as `public/assets/plates/f01-canon.png` and it renders in the Fold moment with zero code changes** (the route prefers `f01-canon.webp` when a later pass compresses it, and falls back to the placeholder layer while neither file exists).

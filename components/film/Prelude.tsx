@@ -94,10 +94,13 @@ export default function Prelude({
   p,
   opacity,
   reduced,
+  foldSrc = null,
 }: {
   p: number;
   opacity: number;
   reduced: boolean;
+  /** The canon F-01 fold plate, once its file is on disk; null falls back to the layered placeholder. */
+  foldSrc?: string | null;
 }) {
   const pointer: PointerRef = useRef({ x: 0.5, y: 0.5 });
   // viewport aspect drives the cover-crop projection; 16:9 default so SSR and
@@ -129,6 +132,14 @@ export default function Prelude({
   const originX = proj.x(cam.cx);
   const originY = proj.y(cam.cy);
 
+  // The fold — the one beat that is its own plate (canon F-01): it cross-
+  // dissolves over the room on the fold's envelope, graded by the same welding
+  // pass, so the cut to macro reads as the same film. Mounted a little ahead of
+  // its fade-in so the image is fetched before it is seen.
+  const fold = MOMENTS.find((m) => m.id === 'fold')!;
+  const foldOp = foldSrc ? momentOpacity(p, fold) : 0;
+  const mountFold = foldSrc !== null && p > fold.in - 0.08 && p < fold.out + 0.05;
+
   return (
     <div className="prelude" style={{ opacity }}>
       {/* the camera: the canon plate, panned + pushed toward the prop in focus */}
@@ -142,6 +153,27 @@ export default function Prelude({
         </PlateGrade>
       </div>
 
+      {/* 5:10 — the fold: the canon F-01 plate, cross-dissolving over the room */}
+      {mountFold && (
+        <div className="prelude-fold" style={{ opacity: foldOp }}>
+          <PlateGrade>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src={foldSrc!} alt="" />
+          </PlateGrade>
+          {/* the Score arc stays — the fold line and the divider are one gesture */}
+          <svg className="prelude-fold__score" viewBox="0 0 100 60" preserveAspectRatio="none" aria-hidden="true">
+            <path
+              d="M2 40 C 26 35.5, 66 27.5, 98 18"
+              fill="none"
+              stroke="rgb(var(--d-inst, 156 106 33))"
+              strokeWidth="0.35"
+              strokeLinecap="round"
+              opacity="0.5"
+            />
+          </svg>
+        </div>
+      )}
+
       {/* the single light, pooled on the subject; a field of dark around it */}
       <div
         className="prelude-pool"
@@ -153,6 +185,8 @@ export default function Prelude({
       {/* the moments, each pinned to its prop's on-screen pool of light */}
       {MOMENTS.map((m: Moment) => {
         if (m.id === 'establish') return null;
+        // the placeholder fold layer retires once the real F-01 plate renders
+        if (m.id === 'fold' && foldSrc) return null;
         const op = momentOpacity(p, m);
         const active = op > 0.015;
         const box = BOX[m.id];
