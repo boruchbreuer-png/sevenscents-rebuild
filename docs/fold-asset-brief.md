@@ -54,3 +54,22 @@ Approved and generated 2026-07-10 through the Higgsfield connector. Both candida
 - **Review:** rendered in the Higgsfield widget (job IDs above). The session's egress proxy blocks the Higgsfield CDN by org policy (403), so the owner reviews/downloads from the widget — same flow as the canon plates.
 
 *Awaiting the gate: pick A or B (or request a Round 2). On selection, the winner is upscaled/compressed like the canon plates, committed to `public/assets/plates/`, registered in `lib/plates.ts` as `F-01`, and the placeholder `Fold.tsx` retires — that step is the integration, not this one.*
+
+## Round 1 verdict (owner review, 2026-07-12)
+- **F01-A rejected** — two prominent hands, visible forearm/clothing, a knife in frame, instructional daytime-bright read. None of it carries forward.
+- **F01-B selected as the reference direction, not final** — right restraint (one partial hand, dough dominant, strong negative space) but it reads as a windowpane stretch rather than the Fold, the dough is too elastic, and the orange beam is too theatrical.
+- **Round 2 required:** F01-B's restraint + a clearly readable single deliberate fold + believable matte fermented dough + quieter, darker 5:10 light.
+
+## Round 2 — generated, holding at the F-01 review gate (NOT integrated)
+Generated 2026-07-12. Both candidates reference **F01-B** (`3911d6b5…`, first — the immediate direction), **P-11** (`b464f504…`, macro material/film stock), and **M-00** (`3cff50ce…`, room/light) as `image_references`. Both prompts stage *one deliberate fold* (a restrained curved flap folding back over the mass's own center — explicitly not a windowpane/cheese/fabric/rubber/gloss), matte slightly-tacky aerated dough with at most a faint warmth at the thinnest lip, darker 5:10 light (low raking, ember→wheat, no visible window, no orange rectangle, no backlight), one partial hand only, and the full removal list (knives, bowls, wheat, grains, butter, utensils, props, flying flour, two hands, instructional/café/farmhouse/Pinterest/food-ad styling) as negative clauses.
+
+| Candidate | Direction | Higgsfield job ID | Seed |
+|---|---|---|---|
+| **F01-R2A** | mid-fold — the lifted edge folding back over the center, fingertips entering lower-right, light off-frame left | `7c1dc376-c53b-4960-8277-671b9a63ccad` | `923138` |
+| **F01-R2B** | the commit — the flap just settling onto the mass, crease catching the light, side of one hand at the left edge, camera at table level, light off-frame right | `bc2b1ad7-235f-453b-a701-bbfe686a9a03` | `178224` |
+
+- **Model:** `seedream_v4_5` (same as canon) · **quality:** high · **aspect:** 16:9 · **dimensions:** 5120×2880.
+- **Cost:** 1 credit each, 2 total (balance 31 → 29; F-01 spend to date: 4).
+- **Review:** rendered in the Higgsfield widget (job IDs above); the session's egress policy still blocks the CDN (403), so pixels are reviewed there — no self-scorecard.
+
+*Awaiting the gate: pick R2A or R2B as F-01 (or request a Round 3). Integration only on selection.*
